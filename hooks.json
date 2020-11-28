@@ -1,0 +1,6 @@
+[
+  {
+    "id": "refresh",
+    "execute-command": "/update.sh",
+  }
+]
