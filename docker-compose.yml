@@ -1,0 +1,22 @@
+services:
+    webhook:
+        build:
+            context: .
+            args:
+                - SSH_PRIVATE_KEY
+        ports:
+            - 9000:9000
+        volumes:
+            - type: volume
+              source: webdir
+              target: /var/www/html/Documentation/public
+    nginx:
+        image: nginx:latest
+        volumes:
+            - type: volume
+              source: webdir
+              target: /usr/share/nginx/html
+        ports:
+            - 8080:80
+volumes:
+    webdir:
